@@ -3,14 +3,20 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { DefectMapModule } from './defect-map/defect-map.module';
+import { PanelComponent } from './panel/panel.component';
+import { DefectComponent } from './defect/defect.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PanelComponent,
+    DefectComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    DefectMapModule
   ],
   providers: [],
   bootstrap: [AppComponent]

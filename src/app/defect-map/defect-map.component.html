@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="550" height="650" [attr.viewBox]="viewBox" > 
+  <rect [attr.x]="xMin" [attr.y]="yMin" [attr.width]="width" [attr.height]="height" style="fill:white;stroke:black;stroke-width:100"></rect>
+  <g  *ngFor="let panel of panels; index as i" >
+    <rect [attr.x]="panel.left" [attr.y]="panel.top" [attr.width]="panel.width" [attr.height]="panel.height" 
+          (click)="changeColor($event, i)" [ngStyle]="tools[0]"></rect>
+    <text [attr.x]="panel.left + 3000" [attr.y]="panel.top + 5000" font-size="2000" fill="blue"> {{i + 1}} </text>
+  </g>
+  <g *ngFor="let defect of defects; index as i">
+    <circle *ngIf="defect.shape === 'circle'" [attr.cx]="defect.x" [attr.cy]="defect.y" [attr.r]="1000" [ngStyle]="defectStyle"></circle>
+  </g>
+</svg>
+<h2>{{lastclick}}</h2>
+<button (click)="changeColor($event)"></button>
